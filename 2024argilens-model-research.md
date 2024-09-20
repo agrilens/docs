@@ -1,5 +1,10 @@
 # Research: Model Selection for Argilens #3
 
+## Contributors 
+
+- Luke F.
+- Blair E.
+
 ## Initial Questions
 
 - What model do we want to use for this application?
