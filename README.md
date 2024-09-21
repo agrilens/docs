@@ -1,7 +1,7 @@
 # artifacts
 Artifacts
 
-
+ 
 # Ticket 12 Identify the API we will use
 - Luke Farchione
 We should use this API, this was found last class,
