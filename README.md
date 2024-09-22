@@ -4,7 +4,7 @@ A scrum-based project developing a service to identify plant health for resource
 
 ## Quick Start
 
-[Instructions for setting up and running the project locally]
+[Instructions for setting up and running the project locally once we have code]
 
 ## Project Overview
 
@@ -12,9 +12,6 @@ Our service aims to help farmers with limited resources by:
 - Identifying potential plant health issues
 - Providing basic analytics to optimize resource use
 - Offering insights without requiring extensive technical knowledge
-
-Key features:
-- [List 2-3 key features]
 
 ## Documentation Structure
 
