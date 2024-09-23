@@ -7,32 +7,37 @@ This document outlines the key processes and conventions followed by our team fo
 - In-class meetings: Twice per week
 - Sprint planning: Once per week
 
-## Decision Making
+## Decision-Making
 
-- Decisions, especially those involving technical matters, are made by team consensus.
-- All team members need to understand and agree to technical decisions.
+- Decisions, especially those involving technical matters, are made by team consensus since everyone has to understand what they are agreeing to. 
 
 ## Development Approach
 
-- We follow an Agile-inspired approach with weekly sprints.
+- We follow a form of Scrum, an Agile-inspired approach with weekly sprints.
 - Sprint planning meetings are used to assess progress, adjust priorities, and plan the next week's work.
 
 ## Communication
 
-- In-person: During scheduled in-class meetings
-- Slack channel for ongoing communication
-- Teams group for weekly. remote meetings 
+- In-person: In-class meetings, Tuesdays and Thursdays
+- Slack channel for updates
+- Teams group for weekly, remote meetings
 
 ## Documentation
 
 - Key decisions and project documentation are stored in the `/docs` (see `/docs/README.md`) directory of our project repository.
 - This includes but is not limited to:
-  - Project requirements
-  - Architecture decisions
+  - Requirements
+  - Design documents
   - User guides
+  - Processes
+  - Artifacts
 
 ## Code Management
 
 - PRs are reviewed by at least one other teammate.
 
-Note: This document is a living document and may be updated as our processes evolve throughout the project.
+Note: This document is a living document and will change as the project progresses.
+
+---
+
+Last updated: 2024-09-23

@@ -1,17 +1,21 @@
 # Agrilens: Plant Health Identification Service
 
-A scrum-based project developing a service to identify plant health for resource-constrained farmers, providing labor- and resource-saving technology and analytics.
+Agrilens is a scrum-based project developing a service to 
+  - Identify plant health for resource-constrained farmers
+  - Aggregate and analyze plant health data
+  - Provide insights based on data collected to help save labor and resources
 
 ## Quick Start
 
-[Instructions for setting up and running the project locally once we have code]
+[Team: Instructions for setting up and running the project locally once we have code]
+[Users: Instructions for using the service]
 
 ## Project Overview
 
 Our service aims to help farmers with limited resources by:
-- Identifying potential plant health issues
-- Providing basic analytics to optimize resource use
-- Offering insights without requiring extensive technical knowledge
+- Identifying plant health issues including diseases & pests
+- Providing basic analytics to optimize resource use and show problems areas of the farm
+- Offering insights and information without requiring extensive technical knowledge from end users
 
 ## Documentation Structure
 
@@ -30,7 +34,7 @@ For full documentation structure and guidelines, see [`/docs/structure.md`](/str
 
 ## Development
 
-[Brief instructions or link to development setup guide]
+[See Quickstart]
 
 ## Contributing
 
@@ -38,6 +42,7 @@ For full documentation structure and guidelines, see [`/docs/structure.md`](/str
 - Place new documents in the appropriate directory
 - Update this README when adding new documents or directories
 - For major changes, create a pull request
+- See see [`/docs/structure.md`](/structure.md) for more details 
 
 ## Team
 
@@ -56,12 +61,12 @@ Our immediate priorities are:
 
 - [] Continue gathering and refining requirements from stakeholders
 - [] Research and evaluate potential technologies and existing solutions
-- [] Begin synthesizing findings to inform our system design
+- [] Begin synthesizing findings to inform our product & design choices
 
-These steps will guide our development process and help us make informed decisions about our service's architecture and features.
+These steps will guide our development process and help us make decisions about our service's architecture and features.
 
 For questions or suggestions about the project or documentation, please contact Jessica or Blair.
 
 ---
 
-Last updated: 2024-09-22
+Last updated: 2024-09-23

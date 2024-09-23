@@ -44,3 +44,7 @@ This document outlines our project documentation structure, designed to serve fo
 - Figma: For UI/UX design documentation.
 
 For questions or suggestions about these guidelines, please contact Jessica or Blair.
+
+---
+
+Last updated: 2024-09-23
