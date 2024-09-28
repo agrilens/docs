@@ -29,7 +29,7 @@ Key locations:
   - `/meeting-notes/`: Meeting notes and decision logs
   - `/artifacts/`: Project artifacts and outputs that do not fit into the other categories
 
-For full documentation structure and guidelines, see [`/docs/structure.md`](/structure.md).
+For full documentation structure and guidelines, see [`/docs/documentation-structure.md`](/documentation-structure.md).
 
 ## Development
 
@@ -41,7 +41,7 @@ For full documentation structure and guidelines, see [`/docs/structure.md`](/str
 - Place new documents in the appropriate directory
 - Update this README when adding new documents or directories
 - For major changes, create a pull request
-- See see [`/docs/structure.md`](/structure.md) for more details 
+- See see [`/docs/documentation-structure.md`](/documentation-structure.md) for more details 
 
 ## Team
 
