@@ -5,7 +5,7 @@ Agrilens is a scrum-based project developing a service to
   - Aggregate and analyze plant health data
   - Provide insights based on data collected to help save labor and resources
 
-
+## Quickstart
 [Team: Instructions for setting up and running the project locally once we have code]
 [Users: Instructions for using the service]
 
