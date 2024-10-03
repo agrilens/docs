@@ -1,8 +1,8 @@
 # High-Level Requirements
 
 ## Stakeholders
-1. End users: Consumers of the software 
-2. System administrators: Those who will deploy the software
+1. End Users: Consumers of the software 
+2. System Administrators: Those who will deploy the software
 3. Maintainers: Those who will maintain and/or extend the software
 
 ## End User Functional Requirements
