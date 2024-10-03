@@ -1,6 +1,11 @@
 # High-Level Requirements
 
-## Functional Requirements
+## Stakeholders
+1. End users: Consumers of the software 
+2. System administrators: Those who will deploy the software
+3. Maintainers: Those who will maintain and/or extend the software
+
+## End User Functional Requirements
 1. Image Capture: Allow users to take photos of plant leaves or upload existing images
 1. Disease Identification: Analyze images to identify potential diseases or health issues
 1. Basic Recommendations: Provide simple care instructions based on identified issues
@@ -10,7 +15,7 @@
 1. Data Aggregation: Collect and store anonymized user data, including disease identifications, locations, and timestamps
 1. Basic Insights: Provide simple insights based on aggregated data using LLMs
 
-## Non-Functional Requirements
+## End User Non-Functional Requirements
 1. Usability: Interface should be intuitive for users with limited tech experience
 1. Reliability: App should function in areas with intermittent internet connectivity (i.e., can collect photos and upload later)
 1. Security: Ensure user data, images, and location information are stored securely
