@@ -1,7 +1,7 @@
 # Scrum Template
 
-Scrum meeting #
-Date: --/--/--
+Scrum meeting # __
+Date: --/--/----
 
 ## Sprint Review
 What questions do you have? 
@@ -17,7 +17,7 @@ What do we want to improve?
 #Sprint Planning:
 
 _Backlog refinement_**
-What was the Sprint goal?
+-What is the Sprint goal?
 
 product owner— What feature will add the most value for this sprint?
 
