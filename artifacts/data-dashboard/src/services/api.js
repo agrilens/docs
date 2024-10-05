@@ -3,6 +3,16 @@ import axios from 'axios';
 const API_URL = 'https://api.hyperbolic.xyz/v1/chat/completions';
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+// Helper function to convert file to base64
+const convertToBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = error => reject(error);
+  });
+};
+
 export const analyzePlantHealth = async (formData) => {
   try {
     const file = formData.get('image');
@@ -43,8 +53,13 @@ export const analyzePlantHealth = async (formData) => {
 
     console.log('API Response:', response.data);
 
-    // Instead of parsing JSON, we'll return the text content
-    return response.data.choices[0].message.content;
+    const content = response.data.choices[0].message.content;
+    console.log('API Content:', content);
+
+    // Parse the content into a structured object
+    const parsedData = parseAnalysisContent(content);
+
+    return parsedData;
   } catch (error) {
     console.error('Full error object:', error);
     if (error.response) {
@@ -60,12 +75,43 @@ export const analyzePlantHealth = async (formData) => {
   }
 };
 
-// Helper function to convert file to base64 (unchanged)
-const convertToBase64 = (file) => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result.split(',')[1]);
-    reader.onerror = error => reject(error);
+function parseAnalysisContent(content) {
+  const sections = content.split('**').filter(s => s.trim());
+  const parsed = {};
+
+  sections.forEach(section => {
+    const [key, ...value] = section.split(':');
+    if (key && value.length) {
+      parsed[key.trim().toLowerCase().replace(/\s+/g, '_')] = value.join(':').trim();
+    }
   });
-};
+
+  // Extract numeric health score
+  parsed.health_score = getHealthScore(parsed.overall_health_status);
+
+  // Parse recommendations into an array
+  if (parsed.recommendations) {
+    parsed.recommendations = parsed.recommendations
+      .split(/\d+\./)
+      .filter(r => r.trim())
+      .map(r => r.trim());
+  }
+
+  console.log('Parsed content:', parsed);
+  return parsed;
+}
+
+function getHealthScore(healthStatus) {
+  if (!healthStatus) {
+    console.warn('Health status is undefined or empty');
+    return 0;  // Default score when health status is missing
+  }
+
+  const lowercaseStatus = healthStatus.toLowerCase();
+  if (lowercaseStatus.includes('healthy')) return 100;
+  if (lowercaseStatus.includes('some issues') || lowercaseStatus.includes('mild')) return 70;
+  if (lowercaseStatus.includes('moderate')) return 50;
+  if (lowercaseStatus.includes('severe')) return 30;
+  console.warn('Unrecognized health status:', healthStatus);
+  return 0;  // Default for very poor health or unrecognized status
+}

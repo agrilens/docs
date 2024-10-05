@@ -5,12 +5,11 @@ import { analyzePlantHealth } from '../services/api';
 function UploadPage() {
   const [file, setFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentAnalysis, setCurrentAnalysis] = useState(null);
   const navigate = useNavigate();
 
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    console.log('Selected file:', selectedFile.name, selectedFile.type, selectedFile.size);
-    setFile(selectedFile);
+    setFile(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
@@ -19,17 +18,24 @@ function UploadPage() {
 
     setIsLoading(true);
     try {
-      console.log('Submitting file:', file.name, file.type, file.size);
       const formData = new FormData();
       formData.append('image', file);
       const result = await analyzePlantHealth(formData);
-      console.log('Analysis result:', result);
-      // Store the raw text result
-      localStorage.setItem('analysisResult', result);
-      navigate('/dashboard');
+      
+      // Display current analysis
+      setCurrentAnalysis(result);
+
+      // Store the new analysis with existing ones
+      const existingAnalyses = JSON.parse(localStorage.getItem('plantAnalyses') || '[]');
+      existingAnalyses.push({
+        id: Date.now(),
+        fileName: file.name,
+        ...result
+      });
+      localStorage.setItem('plantAnalyses', JSON.stringify(existingAnalyses));
     } catch (error) {
-      console.error('Error in handleSubmit:', error);
-      alert('Error analyzing image. Please check the console for more details.');
+      console.error('Error analyzing image:', error);
+      alert('Error analyzing image. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -44,6 +50,15 @@ function UploadPage() {
           {isLoading ? 'Analyzing...' : 'Analyze'}
         </button>
       </form>
+
+      {currentAnalysis && (
+        <div>
+          <h2>Current Analysis Result</h2>
+          <pre>{JSON.stringify(currentAnalysis, null, 2)}</pre>
+        </div>
+      )}
+
+      <button onClick={() => navigate('/dashboard')}>View Dashboard</button>
     </div>
   );
 }
