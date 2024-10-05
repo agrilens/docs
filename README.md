@@ -1,20 +1,27 @@
 # Agrilens: Plant Health Identification Service
-
 Agrilens is a scrum-based project developing a service to 
   - Identify plant health for resource-constrained farmers
   - Aggregate and analyze plant health data
   - Provide insights based on data collected to help save labor and resources
 
-## Quickstart
-[Team: Instructions for setting up and running the project locally once we have code]
-[Users: Instructions for using the service]
-
 ## Project Overview
-
 Our service aims to help farmers with limited resources by:
 - Identifying plant health issues including diseases & pests
 - Providing basic analytics to optimize resource use and show problems areas of the farm
 - Offering insights and information without requiring extensive technical knowledge from end users
+
+## Deployment 
+
+- Located at ['/docs/deployment-guide.md']
+- Comprehensive instructions for deploying AgriLens
+- Includes system requirements, installation steps, and configuration details
+
+  ## Development
+
+- Located at ['/docs/developer-guide.md']
+- Contains setup instructions for development environment
+- Outlines coding standards and contribution process
+- Provides overview of project architecture
 
 ## Documentation Structure
 
@@ -30,10 +37,6 @@ Key locations:
   - `/artifacts/`: Project artifacts and outputs that do not fit into the other categories
 
 For full documentation structure and guidelines, see [`/docs/documentation-structure.md`](/documentation-structure.md).
-
-## Development
-
-[See Quickstart]
 
 ## Contributing
 
@@ -53,19 +56,9 @@ For full documentation structure and guidelines, see [`/docs/documentation-struc
 
 ## Project Status
 
-- Currently we are gathering requirements, researching existing solutions, and prototyping key parts of the product
-
-## Next Steps
-Our immediate priorities are:
-
-- [] Continue gathering and refining requirements from stakeholders
-- [] Research and evaluate potential technologies and existing solutions
-- [] Begin synthesizing findings to inform our product & design choices
-
-These steps will guide our development process and help us make decisions about our service's architecture and features.
-
-For questions or suggestions about the project or documentation, please contact Jessica or Blair.
+- Currently we are gathering more detailed requirements, prototyping key parts of the product, and writing production code
+- For questions or suggestions about the project or documentation, please contact Jessica or Blair.
 
 ---
 
-Last updated: 2024-09-28
+Last updated: 2024-10-05
