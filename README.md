@@ -10,13 +10,13 @@ Our service aims to help farmers with limited resources by:
 - Providing basic analytics to optimize resource use and show problems areas of the farm
 - Offering insights and information without requiring extensive technical knowledge from end users
 
-## Deployment 
+## Deployment
 
 - Located at [`/docs/deployment-guide.md`](/deployment-guide.md)
 - Comprehensive instructions for deploying AgriLens
 - Includes system requirements, installation steps, and configuration details
 
-  ## Development
+## Development
 
 - Located at [`/docs/developer-guide.md`](/developer-guide.md)
 - Contains setup instructions for development environment
@@ -25,7 +25,8 @@ Our service aims to help farmers with limited resources by:
 
 ## Documentation Structure
 
-Our documentation is organized to serve four primary user groups: Current Team Members, Instructor, Customers/Stakeholders, and New Team Members.
+- Our documentation is organized to serve four primary groups: Current Team Members, Instructor, System Administrators, Software Contributors & Maintainers, and New Team Members. 
+- We will reorganize this as the project grows to serve each group more effectively. 
 
 Key locations:
 - `/docs`: Main documentation directory
