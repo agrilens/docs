@@ -12,13 +12,13 @@ Our service aims to help farmers with limited resources by:
 
 ## Deployment 
 
-- Located at ['/docs/deployment-guide.md']
+- Located at [`/docs/deployment-guide.md`](/deployment-guide.md)
 - Comprehensive instructions for deploying AgriLens
 - Includes system requirements, installation steps, and configuration details
 
   ## Development
 
-- Located at ['/docs/developer-guide.md']
+- Located at [`/docs/developer-guide.md`](/developer-guide.md)
 - Contains setup instructions for development environment
 - Outlines coding standards and contribution process
 - Provides overview of project architecture
