@@ -1,14 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import axios from 'axios';
 
 function DashboardPage() {
   const [analyses, setAnalyses] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const storedAnalyses = JSON.parse(localStorage.getItem('plantAnalyses') || '[]');
-    setAnalyses(storedAnalyses);
+    const fetchAnalyses = async () => {
+      try {
+        const response = await axios.get('/api/analyses');
+        setAnalyses(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching analyses:', err);
+        setError('Failed to fetch analyses. Please try again later.');
+        setLoading(false);
+      }
+    };
+
+    fetchAnalyses();
   }, []);
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div className="error-message">{error}</div>;
   if (analyses.length === 0) {
     return <div>No analysis data available. Please upload and analyze some images first.</div>;
   }
@@ -29,50 +45,56 @@ function DashboardPage() {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
   return (
-    <div>
+    <div className="dashboard">
       <h1>Plant Health Dashboard</h1>
       
-      <h2>Average Health Score</h2>
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={[{ name: 'Average Health', score: averageHealthScore }]}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis domain={[0, 100]} />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="score" fill="#8884d8" />
-        </BarChart>
-      </ResponsiveContainer>
+      <section aria-label="Average Health Score">
+        <h2>Average Health Score</h2>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={[{ name: 'Average Health', score: averageHealthScore }]}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis domain={[0, 100]} />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="score" fill="#8884d8" />
+          </BarChart>
+        </ResponsiveContainer>
+      </section>
 
-      <h2>Health Distribution</h2>
-      <ResponsiveContainer width="100%" height={300}>
-        <PieChart>
-          <Pie
-            data={healthDistributionData}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-          >
-            {healthDistributionData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-          <Tooltip />
-        </PieChart>
-      </ResponsiveContainer>
+      <section aria-label="Health Distribution">
+        <h2>Health Distribution</h2>
+        <ResponsiveContainer width="100%" height={300}>
+          <PieChart>
+            <Pie
+              data={healthDistributionData}
+              cx="50%"
+              cy="50%"
+              labelLine={false}
+              outerRadius={80}
+              fill="#8884d8"
+              dataKey="value"
+              label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+            >
+              {healthDistributionData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
+        </ResponsiveContainer>
+      </section>
 
-      <h2>Recent Analyses</h2>
-      <ul>
-        {analyses.slice(-5).reverse().map((analysis) => (
-          <li key={analysis.id}>
-            {analysis.fileName}: Health Score - {analysis.health_score}
-          </li>
-        ))}
-      </ul>
+      <section aria-label="Recent Analyses">
+        <h2>Recent Analyses</h2>
+        <ul>
+          {analyses.slice(-5).reverse().map((analysis) => (
+            <li key={analysis._id}>
+              {analysis.fileName}: Health Score - {analysis.health_score}
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 }
