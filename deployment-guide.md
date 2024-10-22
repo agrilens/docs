@@ -1,6 +1,10 @@
 # AgriLens Basic Deployment Guide
 
-## 1. Introduction
+# This document is deprecated. Agrilens is under heavy development and we will publish a new deployment guide soon.
+
+--- 
+
+~~ ## 1. Introduction
 AgriLens is a React-based web application for plant health identification. This guide covers the basic steps to deploy the application.
 
 ## 2. Prerequisites
@@ -55,6 +59,6 @@ To obtain the required API keys:
 **Note:** Keep these API keys confidential and never share them publicly. Make sure the .env file is included in your .gitignore to prevent accidentally committing it to version control.
 
 [Blair: we will add more when we are further along in development.]
-
+~~
 ---
-Last updated: 2024-10-05
+Last updated: 2024-10-05 
