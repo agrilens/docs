@@ -1,6 +1,6 @@
 # Plant Village Test README
 
-Pest & Disease detection accuracy plot: (/detection_accuracy_plot.png)
+Pest & Disease detection accuracy plot: [`detection accuracy plot`](/detection_accuracy_plot.png)
 
 Link to Colab notebook: https://colab.research.google.com/drive/1Tfc-J7HUIAJYdYiVXkSV7qnj79K2oiGS?usp=sharing
 
