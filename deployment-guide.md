@@ -1,64 +1,156 @@
-# AgriLens Basic Deployment Guide
+# AgriLens Deployment Guide
 
-# This document is deprecated. Agrilens is under heavy development and we will publish a new deployment guide soon.
+> **Current as of: November 2024**  
+> This guide covers deploying AgriLens using GitHub Codespaces and Firebase.
 
---- 
-
-~~ ## 1. Introduction
-AgriLens is a React-based web application for plant health identification. This guide covers the basic steps to deploy the application.
+## 1. Introduction
+AgriLens is a React-based web application for plant health identification. This guide covers deployment using GitHub Codespaces and Firebase, providing a streamlined development and deployment workflow.
 
 ## 2. Prerequisites
-- A server or hosting platform that supports Node.js applications
-- Node.js (version 14.x or higher)
-- npm (usually comes with Node.js)
-- Git
+- GitHub account with Codespaces access
+- Firebase account (free tier is sufficient)
+- Web browser
+- No local development environment required
 
-## 3. Deployment Steps
+## 3. Initial Setup
 
-### 3.1 Clone the Repository
-```bash
-git clone https://github.com/[your-username]/agrilens.git
-cd agrilens
-```
+### 3.1 Fork the Repository
+1. Visit the AgriLens repository on GitHub
+2. Click the "Fork" button in the top-right corner
+3. Select your GitHub account as the destination
 
-### 3.2 Install Dependencies
+### 3.2 Configure GitHub Codespaces
+1. Navigate to your forked repository
+2. Click the green "Code" button
+3. Select "Open with Codespaces"
+4. Click "New codespace"
+
+### 3.3 Firebase Setup
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Create a new project (or select existing)
+3. Enable Hosting service:
+   ```bash
+   # In Codespace terminal
+   npm install -g firebase-tools
+   firebase login --no-localhost
+   firebase init hosting
+   ```
+4. During Firebase init, select these options:
+   - Use existing project (select your Firebase project)
+   - Use `build` as your public directory
+   - Configure as single-page app: Yes
+   - Set up automatic builds/deploys: Yes
+
+## 4. Environment Configuration
+
+### 4.1 Set Up Environment Variables
+1. In your Codespace, create a new `.env` file:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Add required environment variables:
+   ```plaintext
+   REACT_APP_FIREBASE_API_KEY=your_firebase_key
+   REACT_APP_FIREBASE_AUTH_DOMAIN=your_domain
+   REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+   REACT_APP_QWEN_API_KEY=your_qwen_key
+   REACT_APP_OPENAI_API_KEY=your_openai_key
+   ```
+
+3. Get Firebase config values:
+   - Go to Firebase Console
+   - Project Settings
+   - Scroll to "Your apps"
+   - Click web app icon (</>)
+   - Register app and copy config values
+
+### 4.2 Configure GitHub Secrets
+1. Go to your forked repository settings
+2. Navigate to Secrets and Variables > Actions
+3. Add the following secrets:
+   - `FIREBASE_SERVICE_ACCOUNT`: Your Firebase service account JSON
+   - `QWEN_API_KEY`: Your Qwen API key
+   - `OPENAI_API_KEY`: Your OpenAI API key
+
+## 5. Deployment
+
+### 5.1 Local Testing in Codespace
 ```bash
 npm install
+npm start
 ```
 
-### 3.3 Set Up Environment Variables
-Create a `.env` file in the project root:
+### 5.2 Build and Deploy
 ```bash
-cp .env.example .env
-nano .env
-```
-Add necessary environment variables:
-```
-REACT_APP_QWEN_API_KEY=your_api_key_here
-REACT_APP_OPENAI_API_KEY==your_api_key_here
+npm run build
+firebase deploy
 ```
 
-To obtain the required API keys:
+### 5.3 Automatic Deployment
+The repository includes a GitHub Action that automatically deploys to Firebase when you push to the main branch:
 
-**Qwen-V2 API Key:**
+```yaml
+name: Deploy to Firebase
+on:
+  push:
+    branches: [ main ]
 
-1. Visit the Hyperbolic website ([Hyperbolic website](https://app.hyperbolic.xyz/models/qwen2-vl-72b-instruct]) or similar model hosting service
-1. Sign up for an account or log in if you already have one
-1. Navigate to the API section in your dashboard
-1. Generate a new API key
-1. Copy the API key and paste it as the value for REACT_APP_QWEN_API_KEY
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          channelId: live
+```
 
-**OpenAI API Key:**
+## 6. Post-Deployment
 
-1. Go to the OpenAI website (https://openai.com/)
-1. Sign up for an account or log in
-1. Navigate to the API section in your account settings
-1. Generate a new API key
-1. Copy the API key and paste it as the value for REACT_APP_OPENAI_API_KEY
+### 6.1 Verify Deployment
+1. Check Firebase Console for deployment status
+2. Visit your Firebase Hosting URL
+3. Test core functionality
 
-**Note:** Keep these API keys confidential and never share them publicly. Make sure the .env file is included in your .gitignore to prevent accidentally committing it to version control.
+### 6.2 Monitoring
+- Monitor application performance in Firebase Console
+- Check error reports in Firebase Crashlytics
+- Review Firebase Analytics for usage patterns
 
-[Blair: we will add more when we are further along in development.]
-~~
+## 7. Troubleshooting
+
+### Common Issues
+1. **Build Failures**
+   - Check Node.js version compatibility
+   - Verify all environment variables are set
+   - Review build logs in GitHub Actions
+
+2. **Deployment Failures**
+   - Confirm Firebase CLI is authenticated
+   - Verify Firebase project permissions
+   - Check GitHub Actions secrets are properly set
+
+3. **Runtime Errors**
+   - Validate API keys and configurations
+   - Check Firebase Console for error logs
+   - Verify environment variables are properly loaded
+
+## 8. Support
+- Report issues on the GitHub repository
+- Join the AgriLens Discord community
+- Check Firebase documentation for platform-specific issues
+
 ---
-Last updated: 2024-10-05 
+**Note:** Keep all API keys and secrets secure. Never commit them directly to the repository.
+
+---
+Contributors: Blair using Claude 3.5 (Claude conversation link: https://claude.site/artifacts/5470fd7c-b023-416f-a7a7-18d0be609e40)
+Last updated: 11-08-2024
