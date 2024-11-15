@@ -4,6 +4,10 @@ Agrilens is a scrum-based project developing a service to
   - Aggregate and analyze plant health data
   - Provide insights based on data collected to help save labor and resources
 
+## Works Cited & Sources
+
+- We used generative AI in this project. Artifacts and other documents where we used generative AI contain a note about the source and a link to the conversation. 
+
 ## Project Overview
 Our service aims to help farmers with limited resources by:
 - Identifying plant health issues including diseases & pests
@@ -62,4 +66,4 @@ For full documentation structure and guidelines, see [`/docs/documentation-struc
 
 ---
 
-Last updated: 2024-10-05
+Last updated: 2024-11-14
