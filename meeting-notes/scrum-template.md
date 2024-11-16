@@ -1,26 +1,33 @@
-# Scrum Template
-
-Scrum meeting # __
-Date: --/--/----
+Scrum meeting # 10 
+Date: 11/15/2024
 
 ## Sprint Review
 What questions do you have? 
+How would timing be like for deliverables?
 
 ## Sprint Retrospective Meeting
 What did we do well?
+-Wrapping things up. Key features are completed. 
 
 What didn’t go so well?	
+-n/a
 
 What do we want to improve?
+Improve deliverable for effectivenes and efficiency. 
 
-
-#Sprint Planning:
+# Sprint Planning:
 
 _Backlog refinement_**
 -What is the Sprint goal?
+Have a organized Repo. Complete polished deliverables. 
 
 product owner— What feature will add the most value for this sprint?
+Intuitive guides. 
 
 How difficult will each task be? 
+Polished guides - 3 
+Final product deliverable - 3 
+Testing - 3 
 
 How will we collaborate? 
+CoMmUnIcAtE 
