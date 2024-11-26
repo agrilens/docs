@@ -154,8 +154,37 @@ REACT_APP_BACKEND_API_URL=urlFromDeploymentOfBackend
 REACT_APP_BACKEND_API_URL=urlFromDeploymentOfBackend
 ```
 
-### 7 Deploy frontend
----
+### 7 Build & Deploy frontend
+
+## 7.1 Build frontend
+1. In the agrilens-frontend repo, start a terminal session and login to Firebase CLI if you are not logged in:
+```bash
+firebase login
+```
+2. Run the following commands:
+```bash
+npm i
+npm bun build
+```
+
+## 7.2 Deploy frontend
+1. Deploy the frontend to Firebase by running these command:
+```bash
+firebase deploy --only hosting
+```
+1.1 This will deploy the frontend from the ```./build``` directory by default, which is the same directory used by the previous command, ```npm run build```. If your ```npm``` installation uses different directories, you will need to make sure the build uses the ```./build``` directory, or else run ```firebase init``` and select Hosting, then follow the prompts and response with the following:
+```bash
+? What do you want to use as your public directory? build
+? Configure as a single-page app (rewrite all urls to /index.html)? No
+? Set up automatic builds and deploys with GitHub? No
+```
+2. If successful, you will see the following in the terminal output:
+```bash
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/agrilens-deploy/overview
+Hosting URL: https://agrilens-deploy.web.app
+```
 
 ## 8. Post-Deployment
 
@@ -197,4 +226,4 @@ REACT_APP_BACKEND_API_URL=urlFromDeploymentOfBackend
 
 ---
 Contributors: Blair & Jihadu
-Last updated: 11-25-2024
+Last updated: 11-26-2024
