@@ -95,7 +95,12 @@ AgriLens is a React-based web application for plant health identification. This 
 ### 5.2 Build Backend
 ```bash
 cd functions
-npm run build
+npm i
+npm run serve
+```
+1. You may need to install ```serve``` with ```npm i serve```.
+2. If ```npm run serve``` is successful, you may exit the Firebase emulator and then run:
+```bash
 firebase deploy --only functions
 ```
 ---
