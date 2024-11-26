@@ -164,7 +164,7 @@ firebase login
 2. Run the following commands:
 ```bash
 npm i
-npm bun build
+npm run build
 ```
 
 ## 7.2 Deploy frontend
