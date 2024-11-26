@@ -56,7 +56,7 @@ AgriLens is a React-based web application for plant health identification. This 
 ## 4. Backend Environment Configuration
 
 ### 4.1 Set Up Environment Variables
-1. In your IDE, create a new `.env` file in the root of the agrilens-backend repo:
+1. In your IDE, create a new `.env` file in the /functions directory of the agrilens-backend repo:
 ```bash
    cd functions
    cp .env.example .env
@@ -92,7 +92,7 @@ AgriLens is a React-based web application for plant health identification. This 
 ```
 2. Follow the prompts to login to Firebase CLI
    
-### 5.2 Build Backend
+### 5.2 Build & Deploy Backend
 ```bash
 cd functions
 npm i
@@ -103,22 +103,56 @@ npm run serve
 ```bash
 firebase deploy --only functions
 ```
----
-### 5.3 Deploy backend
-1. Run 
-From the deployment terminal output, copy the URL (yours will be different than the one in this guide) to the frontend .env "Function URL (app(us-central1)): https://app-nrbifvkcga-uc.a.run.app" like this:
-REACT_APP_BACKEND_API_URL=https://app-nrbifvkcga-uc.a.run.app
+
+3. From the ```firebase deploy --only functions``` terminal output, copy and save the URL (yours will be different than the one in this guide). The line will begin with "Function URL (app(us-central1)):" and end with the URL. Copy the entire URL. You will need this URL in the next step.
 
 ## 6. Frontend Environment Configuration
 
-3. Get Firebase config values from step 2:
+### 6.1
+1. In your IDE, create a new `.env` file in the root of the agrilens-frontend repo:
+```bash
+   cp .env.example .env
+```
+2. Get Firebase config values from step 2:
    - Go to Firebase Console
    - Project Settings
    - Scroll to "Your apps"
    - Click web app icon (</>)
-   - Register app and copy config values
+   - Register app and copy "Config". It will look like this:
+```javascript
+const firebaseConfig = {
+  apiKey: "AIzaSyAIbkahHG-I8Us8gSyzmRrobHqHcIC4rYI",
+  authDomain: "agrilens-deploy.firebaseapp.com",
+  projectId: "agrilens-deploy",
+  storageBucket: "agrilens-deploy.firebasestorage.app",
+  messagingSenderId: "918841086899",
+  appId: "1:918841086899:web:15d168864c0451b8dff1c6"
+};
+```
+     
+3. Copy your config values into the .env:
+```plaintext
+## Variable names should start with `REACT_APP`
+## Values do not need quotes
+## Firebase configuration
+REACT_APP_FIREBASE_API_KEY=apiKeyFromFireBaseConfig
+REACT_APP_FIREBASE_APP_ID=appIdFromFirebaseConfig
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=messagingSenderIdFromFirebaseConfig
+# REACT_APP_FIREBASE_MEASUREMENT_ID=optionalGoogleMeasurementID
+REACT_APP_FIREBASE_AUTH_DOMAIN=authDomainFromFirebaseConfig
+REACT_APP_FIREBASE_PROJECT_ID=projectIdFromFirebaseConfig
+REACT_APP_FIREBASE_STORAGE_BUCKET=storageBucketFromFirebaseConfig
+## Backend api endpoints
+## Dev - You may ignore this unless developing locally
+# REACT_APP_BACKEND_API_URL=http://127.0.0.1:5001/yourprojectname/your-region/app
+## Prod
+REACT_APP_BACKEND_API_URL=urlFromDeploymentOfBackend
+```
 
-4. 
+5. Using the URL from 5.2.3, copy the URL value into the .env:
+```plaintext
+REACT_APP_BACKEND_API_URL=urlFromDeploymentOfBackend
+```
 
 ### 7 Deploy frontend
 ---
