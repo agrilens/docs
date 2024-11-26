@@ -4,58 +4,77 @@
 > This guide covers deploying AgriLens using GitHub Codespaces and Firebase.
 
 ## 1. Introduction
-AgriLens is a React-based web application for plant health identification. This guide covers deployment using GitHub Codespaces and Firebase, providing a streamlined development and deployment workflow.
+AgriLens is a React-based web application for plant health identification. This guide covers deployment using Git and Firebase, providing a streamlined development and deployment workflow. This guide is written for system administrators and assumes working knowledge of Git, Firebase, API keys, and environment variables. 
 
 ## 2. Prerequisites
-- GitHub account with Codespaces access
-- Firebase account (free tier is sufficient)
+- GitHub account
+- Firebase account with Blaze Plan
 - Web browser
-- No local development environment required
+- Local development environment (such as VS Code)
 
 ## 3. Initial Setup
 
-### 3.1 Fork the Repository
-1. Visit the AgriLens repository on GitHub
+### 3.1 Fork the agriLens-backend Repository
+1. Visit the [agrilens-backend repository on GitHub](https://github.com/agrilens/agrilens-backend)
 2. Click the "Fork" button in the top-right corner
 3. Select your GitHub account as the destination
+4. Select the ```main``` branch to fork
 
-### 3.2 Configure GitHub Codespaces
-1. Navigate to your forked repository
-2. Click the green "Code" button
-3. Select "Open with Codespaces"
-4. Click "New codespace"
+### 3.2 Fork the agriLens-frontend Repository
+1. Visit the [agrilens-frontend repository on GitHub](https://github.com/agrilens/agrilens-frontend)
+2. Click the "Fork" button in the top-right corner
+3. Select your GitHub account as the destination
+4. Select the ```main``` branch to fork
 
-### 3.3 Firebase Setup
+### 3.3 Obtain Hyperbolic & PlantID API Keys
+1. Visit [PlantID](https://www.kindwise.com/plant-id) to obtain an API key.
+2. Visit [Hyperbolic Labs](https://hyperbolic.xyz/) to obtain an API key.
+
+### 3.4 Firebase Backend Setup
 1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Create a new project (or select existing)
-3. Enable Hosting service:
-   ```bash
-   # In Codespace terminal
-   npm install -g firebase-tools
-   firebase login --no-localhost
-   firebase init hosting
-   ```
-4. During Firebase init, select these options:
-   - Use existing project (select your Firebase project)
-   - Use `build` as your public directory
-   - Configure as single-page app: Yes
-   - Set up automatic builds/deploys: Yes
+2. Create a new project named "agrilens-web"
+3. Go to Project Settings. Click on the "Service Accounts" tab. Then click "Generate a New Private Key." This will cause a JSON file to be saved to your machine. You will use these values to fill in the backend .env in a later step.
 
+### 3.5 Firebase Frontend Setup
+1. Go to Project Settings. Click on the "General" tab. Then under "Your Apps," click the "</>" symbol to register your app.
+2. Under "SDK setup and configuration", select "Config" and copy the values. You will use these values to fill in the frontend .env in a later step.
+
+### 3.6 Firebase Services
+1. For the following steps 2-5, on the left side of the Firebase homepage, click "Build" to access Authentication, Firestore Database, Functions, and Hosting tabs. 
+2. Click "Authentication." Then "Get Started." Then under "Native Providers," click "Email/Password," and finally toggle the enable setting.
+3. Click "Firestore Database." Then "Create Databse" with the default settings in production mode. Start a collection called "users". Then add a document called "customers". Then start a collection under "customers" called "customer" with the Auto-ID feature and click "Save". See screenshots below: 
+![data-model-1](database-data-model-1.png)
+![data-model-2](database-data-model-2.png)
+
+4. Click "Functions". Then "Get Started". You will need to upgrade to the Blaze plan if you have not done so already.
+5. Click "Hosting". Then "Get Started," and follow the prompts with the default settings.  
+
+---
 ## 4. Environment Configuration
 
 ### 4.1 Set Up Environment Variables
-1. In your Codespace, create a new `.env` file:
+1. In your IDE, create a new `.env` file in the root of the agrilens-backend repo:
    ```bash
    cp .env.example .env
    ```
 
 2. Add required environment variables:
    ```plaintext
-   REACT_APP_FIREBASE_API_KEY=your_firebase_key
-   REACT_APP_FIREBASE_AUTH_DOMAIN=your_domain
-   REACT_APP_FIREBASE_PROJECT_ID=your_project_id
-   REACT_APP_QWEN_API_KEY=your_qwen_key
-   REACT_APP_OPENAI_API_KEY=your_openai_key
+HYPERBOLIC_API_KEY=""
+PLANT_ID_API_KEY=""
+
+TYPE_VALUE="service_account"
+PROJECT_ID_VALUE="agrilens-web"
+PROJECT_BUCKET_NAME=""
+PRIVATE_KEY_ID_VALUE=""
+PRIVATE_KEY_VALUE=""
+CLIENT_EMAIL_VALUE=""
+CLIENT_ID_VALUE=""
+AUTH_URI_VALUE="https://accounts.google.com/o/oauth2/auth"
+TOKEN_URI_VALUE="https://oauth2.googleapis.com/token"
+AUTH_PROVIDER_CERT_URL_VALUE="https://www.googleapis.com/oauth2/v1/certs"
+CLIENT_CERT_URL_VALUE=""
+UNIVERSE_DOMAIN_VALUE="googleapis.com"
    ```
 
 3. Get Firebase config values:
@@ -85,32 +104,6 @@ npm start
 ```bash
 npm run build
 firebase deploy
-```
-
-### 5.3 Automatic Deployment
-The repository includes a GitHub Action that automatically deploys to Firebase when you push to the main branch:
-
-```yaml
-name: Deploy to Firebase
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm ci
-      - run: npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          channelId: live
 ```
 
 ## 6. Post-Deployment
@@ -152,5 +145,5 @@ jobs:
 **Note:** Keep all API keys and secrets secure. Never commit them directly to the repository.
 
 ---
-Contributors: Blair using Claude 3.5 (Claude conversation link: https://claude.site/artifacts/5470fd7c-b023-416f-a7a7-18d0be609e40)
-Last updated: 11-08-2024
+Contributors: Blair & Jihadu
+Last updated: 11-25-2024
