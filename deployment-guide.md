@@ -123,15 +123,15 @@ firebase deploy --only functions
    - Project Settings
    - Scroll to "Your apps"
    - Click web app icon (</>)
-   - Register app and copy "Config". It will look like this:
+   - Register app and copy "Config". The Config will look like this:
 ```javascript
 const firebaseConfig = {
-  apiKey: "AIzaSyAIbkahHG-I8Us8gSyzmRrobHqHcIC4rYI",
-  authDomain: "agrilens-deploy.firebaseapp.com",
-  projectId: "agrilens-deploy",
-  storageBucket: "agrilens-deploy.firebasestorage.app",
-  messagingSenderId: "918841086899",
-  appId: "1:918841086899:web:15d168864c0451b8dff1c6"
+  apiKey: "yourAPIKey",
+  authDomain: "yourprojectname.firebaseapp.com",
+  projectId: "yourprojectname",
+  storageBucket: "yourprojectname.firebasestorage.app",
+  messagingSenderId: "1234567890",
+  appId: "1:1234567890:web:1234567890"
 };
 ```
      
