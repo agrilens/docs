@@ -187,8 +187,8 @@ firebase deploy --only hosting
 ```bash
 ✔  Deploy complete!
 
-Project Console: https://console.firebase.google.com/project/agrilens-deploy/overview
-Hosting URL: https://agrilens-deploy.web.app
+Project Console: https://console.firebase.google.com/project/yourprojectname/overview
+Hosting URL: https://yourprojectname.web.app
 ```
 
 ## 8. Post-Deployment
