@@ -44,14 +44,19 @@ AgriLens is a React-based web application for plant health identification. This 
 3. Under Project Overview > Project Settings > General > Your App > "SDK setup and configuration", select "Config" and copy the values. You will use these values to fill in the frontend .env in a later step.
 
 ### 3.6 Firebase Services
-1. For the following steps 2-5, on the left side of the Firebase homepage, click "Build" to access Authentication, Firestore Database, Functions, and Hosting tabs. 
+1. For the following steps 2-6, on the left side of the Firebase homepage, click "Build" to access Authentication, Firestore Database, Functions, and Hosting tabs. 
 2. Click "Authentication." Then "Get Started." Then under "Native Providers," click "Email/Password," and finally toggle the enable setting.
-3. Click "Firestore Database." Then "Create Database" with the default settings in production mode. Start a collection called "users". Then add a document called "customers". Then start a collection under "customers" called "customer" with the Auto-ID feature and click "Save". See screenshots below: 
+3. Click "Firestore Database." Then "Create Database" with the default settings in Production Mode. Start a collection called "users". Then add a document called "customers". Then start a collection under "customers" called "customer" with the Auto-ID feature and click "Save". See screenshots below: 
 ![data-model-1](./artifacts/database-data-model-1.png)
 ![data-model-2](./artifacts/database-data-model-2.png)
 
 4. Click "Functions". Then "Get Started". You will need to upgrade to the Blaze plan if you have not done so already, but do not run the provided commands at this time. 
-5. Click "Hosting". Then "Get Started," and follow the prompts with the default settings, but do not run the provided commands at this time. 
+5. Click "Hosting". Then "Get Started," and follow the prompts with the default settings, but do not run the provided commands at this time.
+6. Click "Storage". Then "Get Started", and follow the prompts to "Set up default bucket" in Production Mode.
+
+### 3.7 Firebase Services
+1. After completing 3.6, your Firebase Services panel should look like this:
+![firebase-services-panel](./artifacts/firebase-services-panel.png)
 
 ## 4. Backend Environment Configuration
 
