@@ -35,12 +35,13 @@ AgriLens is a React-based web application for plant health identification. This 
 
 ### 3.4 Firebase Backend Setup
 1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Create a new project named "agrilens-web". If that name is unavailable, you will need to update "agrilens-web" with the new name in ```.firebasrc``` in both the agrilens-frontend and agrilens-backend repo.
-3. Go to Project Settings. Click on the "Service Accounts" tab. Then click "Generate a New Private Key." This will cause a JSON file to be saved to your machine. You will use these values to fill in the backend .env in a later step.
+2. Create a new project named "agrilens-web". If that name is unavailable, you will need to update "agrilens-web" with the new name in ```.firebasrc``` in both the agrilens-frontend and agrilens-backend repos.
+3. Go to Project Overview > Project Settings in the upper left corner of the Firebase console. Click on the "Service Accounts" tab. Then click "Generate a New Private Key." This will cause a JSON file to be saved to your machine. You will use these values to fill in the backend .env in a later step.
 
 ### 3.5 Firebase Frontend Setup
-1. Go to Project Settings. Click on the "General" tab. Then under "Your Apps," click the "</>" symbol to register your app.
-2. Under "SDK setup and configuration", select "Config" and copy the values. You will use these values to fill in the frontend .env in a later step.
+1. Again, go to Project Overview > Project Settings. Click on the "General" tab. Then under "Your Apps," click the "</>" symbol to register your app.
+2. Register your app using the same name as the project from 3.4.2 for convenience. 
+3. Under Project Overview > Project Settings > General > Your App > "SDK setup and configuration", select "Config" and copy the values. You will use these values to fill in the frontend .env in a later step.
 
 ### 3.6 Firebase Services
 1. For the following steps 2-5, on the left side of the Firebase homepage, click "Build" to access Authentication, Firestore Database, Functions, and Hosting tabs. 
