@@ -11,6 +11,7 @@ AgriLens is a React-based web application for plant health identification. This 
 - Firebase account with Blaze Plan
 - Web browser
 - Local development environment (such as VS Code)
+- Node.js 18
 
 ## 3. Initial Setup
 
@@ -49,8 +50,7 @@ AgriLens is a React-based web application for plant health identification. This 
 4. Click "Functions". Then "Get Started". You will need to upgrade to the Blaze plan if you have not done so already.
 5. Click "Hosting". Then "Get Started," and follow the prompts with the default settings.  
 
----
-## 4. Environment Configuration
+## 4. Backend Environment Configuration
 
 ### 4.1 Set Up Environment Variables
 1. In your IDE, create a new `.env` file in the root of the agrilens-backend repo:
@@ -89,39 +89,45 @@ AgriLens is a React-based web application for plant health identification. This 
 
 ## 5. Deployment
 
-### 5.1 Setup Backend
+### 5.1 Setup Backend & Login to Firebase
+1. Run the following commands:
 ```bash
-npm install
-npm start
+   npm install firebase
+   npm install -g firebase-tools
+   firebase login
 ```
-
-### 5.2 Build and Deploy
+2. Follow the prompts to login to Firebase CLI
+   
+### 5.2 Build Backend
 ```bash
+cd functions
 npm run build
-firebase deploy
+firebase deploy --only functions
 ```
-
+---
 ### 5.3 Deploy backend
 1. Run 
-From the deployment terminal output, copy this URL to the frontend .env "Function URL (app(us-central1)): https://app-nrbifvkcga-uc.a.run.app" like this:
+From the deployment terminal output, copy the URL (yours will be different than the one in this guide) to the frontend .env "Function URL (app(us-central1)): https://app-nrbifvkcga-uc.a.run.app" like this:
 REACT_APP_BACKEND_API_URL=https://app-nrbifvkcga-uc.a.run.app
 
-### 5.4 Deploy frontend
+## 6. Frontend Environment Configuration
 
+### 6.1 Deploy frontend
+---
 
-## 6. Post-Deployment
+## 7. Post-Deployment
 
-### 6.1 Verify Deployment
+### 7.1 Verify Deployment
 1. Check Firebase Console for deployment status
 2. Visit your Firebase Hosting URL
 3. Test core functionality
 
-### 6.2 Monitoring
+### 7.2 Monitoring
 - Monitor application performance in Firebase Console
 - Check error reports in Firebase Crashlytics
 - Review Firebase Analytics for usage patterns
 
-## 7. Troubleshooting
+## 8. Troubleshooting
 
 ### Common Issues
 1. **Build Failures**
@@ -139,7 +145,7 @@ REACT_APP_BACKEND_API_URL=https://app-nrbifvkcga-uc.a.run.app
    - Check Firebase Console for error logs
    - Verify environment variables are properly loaded
 
-## 8. Support
+## 9. Support
 - Report issues on the GitHub repository
 - Join the AgriLens Discord community
 - Check Firebase documentation for platform-specific issues
