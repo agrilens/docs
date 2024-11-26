@@ -43,8 +43,8 @@ AgriLens is a React-based web application for plant health identification. This 
 1. For the following steps 2-5, on the left side of the Firebase homepage, click "Build" to access Authentication, Firestore Database, Functions, and Hosting tabs. 
 2. Click "Authentication." Then "Get Started." Then under "Native Providers," click "Email/Password," and finally toggle the enable setting.
 3. Click "Firestore Database." Then "Create Databse" with the default settings in production mode. Start a collection called "users". Then add a document called "customers". Then start a collection under "customers" called "customer" with the Auto-ID feature and click "Save". See screenshots below: 
-![data-model-1](../artifacts/database-data-model-1.png)
-![data-model-2](../artifacts/database-data-model-2.png)
+![data-model-1](./artifacts/database-data-model-1.png)
+![data-model-2](./artifacts/database-data-model-2.png)
 
 4. Click "Functions". Then "Get Started". You will need to upgrade to the Blaze plan if you have not done so already.
 5. Click "Hosting". Then "Get Started," and follow the prompts with the default settings.  
