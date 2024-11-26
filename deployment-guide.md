@@ -1,7 +1,7 @@
 # AgriLens Deployment Guide
 
 > **Current as of: November 2024**  
-> This guide covers deploying AgriLens using GitHub Codespaces and Firebase.
+> This guide covers deploying AgriLens using GitHub and Firebase.
 
 ## 1. Introduction
 AgriLens is a React-based web application for plant health identification. This guide covers deployment using Git and Firebase, providing a streamlined development and deployment workflow. This guide is written for system administrators and assumes working knowledge of Git, Firebase, API keys, and environment variables. 
