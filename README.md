@@ -4,6 +4,12 @@ Agrilens is a scrum-based project developing a service to
   - Aggregate and analyze plant health data
   - Provide insights based on data collected to help save labor and resources
 
+## Project Status
+
+- The latest build of the project is deployed at [Agrilens-web](https://agrilens-web.web.app/).
+- We are iterating on the application's design and incorporating end user and stakeholder feedback.
+- For questions or suggestions about the project or documentation, please contact Jessica or Blair.
+
 ## Works Cited & Sources
 
 - We used generative AI in this project. Artifacts and other documents where we used generative AI contain a note about the source and a link to the conversation. 
@@ -58,13 +64,6 @@ For full documentation structure and guidelines, see [`/docs/documentation-struc
 - Jessica
 - Luke
 - Blair
-
-## Project Status
-
-- The latest build of the project is deployed at [Agrilens-web](https://agrilens-web.web.app/).
-- We are iterating on the application's design and incorporating end user and stakeholder feedback.
-- For questions or suggestions about the project or documentation, please contact Jessica or Blair.
-
 ---
 
 Last updated: 2024-11-26
