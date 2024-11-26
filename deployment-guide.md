@@ -81,16 +81,7 @@ AgriLens is a React-based web application for plant health identification. This 
    UNIVERSE_DOMAIN_VALUE="googleapis.com"
 ```
 
-3. Get Firebase config values from step 2:
-   - Go to Firebase Console
-   - Project Settings
-   - Scroll to "Your apps"
-   - Click web app icon (</>)
-   - Register app and copy config values
-
-4. 
-
-## 5. Deployment
+## 5. Deploy Backend
 
 ### 5.1 Setup Backend & Login to Firebase
 1. Run the following commands:
@@ -115,22 +106,31 @@ REACT_APP_BACKEND_API_URL=https://app-nrbifvkcga-uc.a.run.app
 
 ## 6. Frontend Environment Configuration
 
-### 6.1 Deploy frontend
+3. Get Firebase config values from step 2:
+   - Go to Firebase Console
+   - Project Settings
+   - Scroll to "Your apps"
+   - Click web app icon (</>)
+   - Register app and copy config values
+
+4. 
+
+### 7 Deploy frontend
 ---
 
-## 7. Post-Deployment
+## 8. Post-Deployment
 
-### 7.1 Verify Deployment
+### 8.1 Verify Deployment
 1. Check Firebase Console for deployment status
 2. Visit your Firebase Hosting URL
 3. Test core functionality
 
-### 7.2 Monitoring
+### 8.2 Monitoring
 - Monitor application performance in Firebase Console
 - Check error reports in Firebase Crashlytics
 - Review Firebase Analytics for usage patterns
 
-## 8. Troubleshooting
+## 9. Troubleshooting
 
 ### Common Issues
 1. **Build Failures**
@@ -148,7 +148,7 @@ REACT_APP_BACKEND_API_URL=https://app-nrbifvkcga-uc.a.run.app
    - Check Firebase Console for error logs
    - Verify environment variables are properly loaded
 
-## 9. Support
+## 10. Support
 - Report issues on the GitHub repository
 - Join the AgriLens Discord community
 - Check Firebase documentation for platform-specific issues
