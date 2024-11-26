@@ -54,47 +54,42 @@ AgriLens is a React-based web application for plant health identification. This 
 
 ### 4.1 Set Up Environment Variables
 1. In your IDE, create a new `.env` file in the root of the agrilens-backend repo:
-   ```bash
+```bash
+   cd functions
    cp .env.example .env
-   ```
+```
 
-2. Add required environment variables:
-   ```plaintext
-HYPERBOLIC_API_KEY=""
-PLANT_ID_API_KEY=""
+2. Add required environment variables from the JSON file that was downloaded when you created a new private key:
+```plaintext
+   HYPERBOLIC_API_KEY="yourhyperbolicapikey"
+   PLANT_ID_API_KEY="yourplantidapikey"
+   
+   TYPE_VALUE="service_account"
+   PROJECT_ID_VALUE="agrilens-web"
+   PROJECT_BUCKET_NAME="agrilens-web.firebasestorage.app"
+   PRIVATE_KEY_ID_VALUE="this is private_key_id value in the json file"
+   PRIVATE_KEY_VALUE="this begins with -----BEGIN PRIVATE KEY----- and ends with -----END PRIVATE KEY-----\n"
+   CLIENT_EMAIL_VALUE="this is the client_email value in the json file"
+   CLIENT_ID_VALUE="this is the client_id value in the json file"
+   AUTH_URI_VALUE="https://accounts.google.com/o/oauth2/auth"
+   TOKEN_URI_VALUE="https://oauth2.googleapis.com/token"
+   AUTH_PROVIDER_CERT_URL_VALUE="https://www.googleapis.com/oauth2/v1/certs"
+   CLIENT_CERT_URL_VALUE="this is the client_x509_cert_url value in the json file"
+   UNIVERSE_DOMAIN_VALUE="googleapis.com"
+```
 
-TYPE_VALUE="service_account"
-PROJECT_ID_VALUE="agrilens-web"
-PROJECT_BUCKET_NAME=""
-PRIVATE_KEY_ID_VALUE=""
-PRIVATE_KEY_VALUE=""
-CLIENT_EMAIL_VALUE=""
-CLIENT_ID_VALUE=""
-AUTH_URI_VALUE="https://accounts.google.com/o/oauth2/auth"
-TOKEN_URI_VALUE="https://oauth2.googleapis.com/token"
-AUTH_PROVIDER_CERT_URL_VALUE="https://www.googleapis.com/oauth2/v1/certs"
-CLIENT_CERT_URL_VALUE=""
-UNIVERSE_DOMAIN_VALUE="googleapis.com"
-   ```
-
-3. Get Firebase config values:
+3. Get Firebase config values from step 2:
    - Go to Firebase Console
    - Project Settings
    - Scroll to "Your apps"
    - Click web app icon (</>)
    - Register app and copy config values
 
-### 4.2 Configure GitHub Secrets
-1. Go to your forked repository settings
-2. Navigate to Secrets and Variables > Actions
-3. Add the following secrets:
-   - `FIREBASE_SERVICE_ACCOUNT`: Your Firebase service account JSON
-   - `QWEN_API_KEY`: Your Qwen API key
-   - `OPENAI_API_KEY`: Your OpenAI API key
+4. 
 
 ## 5. Deployment
 
-### 5.1 Local Testing in Codespace
+### 5.1 Setup Backend
 ```bash
 npm install
 npm start
@@ -105,6 +100,14 @@ npm start
 npm run build
 firebase deploy
 ```
+
+### 5.3 Deploy backend
+1. Run 
+From the deployment terminal output, copy this URL to the frontend .env "Function URL (app(us-central1)): https://app-nrbifvkcga-uc.a.run.app" like this:
+REACT_APP_BACKEND_API_URL=https://app-nrbifvkcga-uc.a.run.app
+
+### 5.4 Deploy frontend
+
 
 ## 6. Post-Deployment
 
