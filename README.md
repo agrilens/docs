@@ -61,7 +61,8 @@ For full documentation structure and guidelines, see [`/docs/documentation-struc
 
 ## Project Status
 
-- Currently we are gathering more detailed requirements, prototyping key parts of the product, and writing production code
+- The latest build of the project is deployed at [Agrilens-web](https://agrilens-web.web.app/).
+- We are iterating on the application's design and incorporating end user and stakeholder feedback.
 - For questions or suggestions about the project or documentation, please contact Jessica or Blair.
 
 ---
