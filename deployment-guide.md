@@ -61,7 +61,7 @@ AgriLens is a React-based web application for plant health identification. This 
 ## 4. Backend Environment Configuration
 
 ### 4.1 Set Up Environment Variables
-1. In your IDE, create a new `.env` file in the /functions directory of the agrilens-backend repo:
+1. In your IDE, create a new `.env` file in the ```./functions``` directory of the agrilens-backend repo:
 ```bash
    cd functions
    cp .env.example .env
