@@ -33,7 +33,7 @@ AgriLens is a React-based web application for plant health identification. This 
 
 ### 3.4 Firebase Backend Setup
 1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Create a new project named "agrilens-web"
+2. Create a new project named "agrilens-web". If that name is unavailable, you will need to update "agrilens-web" with the new name in ```.firebasrc``` in both the agrilens-frontend and agrilens-backend repo.
 3. Go to Project Settings. Click on the "Service Accounts" tab. Then click "Generate a New Private Key." This will cause a JSON file to be saved to your machine. You will use these values to fill in the backend .env in a later step.
 
 ### 3.5 Firebase Frontend Setup
