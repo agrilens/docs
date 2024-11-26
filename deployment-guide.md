@@ -20,12 +20,14 @@ AgriLens is a React-based web application for plant health identification. This 
 2. Click the "Fork" button in the top-right corner
 3. Select your GitHub account as the destination
 4. Select the ```main``` branch to fork
+5. Clone the forked repo to your local machine using your IDE.
 
 ### 3.2 Fork the agriLens-frontend Repository
 1. Visit the [agrilens-frontend repository on GitHub](https://github.com/agrilens/agrilens-frontend)
 2. Click the "Fork" button in the top-right corner
 3. Select your GitHub account as the destination
 4. Select the ```main``` branch to fork
+5. Clone the forked repo to your local machine using your IDE.
 
 ### 3.3 Obtain Hyperbolic & PlantID API Keys
 1. Visit [PlantID](https://www.kindwise.com/plant-id) to obtain an API key.
