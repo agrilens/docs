@@ -173,7 +173,7 @@ npm run build
 ```
 
 ## 7.2 Deploy frontend
-1. Deploy the frontend to Firebase by running these command:
+1. Deploy the frontend to Firebase by running this command:
 ```bash
 firebase deploy --only hosting
 ```
