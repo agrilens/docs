@@ -28,30 +28,40 @@ agrilens/
 │   ├── src/
 │   │   ├── aboutUs/            # About page components
 │   │   ├── account/            # User account management
-│   │   ├── assets/            # Static assets
+│   │   ├── assets/             # Static assets
+│   │   ├── chat/              # Chat feature components
 │   │   ├── common/            # Shared components
 │   │   ├── config/            # Firebase configuration
 │   │   ├── contactUs/         # Contact page components
 │   │   ├── contexts/          # React context providers
-│   │   ├── features/
-│   │   │   └── dashboard/     # Dashboard feature components
+│   │   ├── dashboard/         # Dashboard components
 │   │   ├── footer/            # Footer component
 │   │   ├── homePage/          # Home page components
+│   │   ├── insights/          # Data insights components
 │   │   ├── navBar/            # Navigation components
-│   │   ├── pages/            # Page layouts
-│   │   ├── App.js            # Main application component
-│   │   ├── App.css           # Global styles
-│   │   └── index.js          # Application entry point
+│   │   ├── pages/             # Page layouts
+│   │   ├── App.css            # Global styles
+│   │   ├── App.js             # Main application component
+│   │   ├── App.test.js        # Main component tests
+│   │   ├── index.css          # Root styles
+│   │   ├── index.js           # Application entry point
+│   │   ├── logo.svg           # Application logo
+│   │   ├── reportWebVitals.js # Performance reporting
+│   │   └── setupTests.js      # Test configuration
 │   
 ├── agrilens-backend/           # Express.js + Firebase Functions backend
 │   ├── functions/
-│   │   ├── config/           # Backend configuration
-│   │   ├── middleware/       # Express middleware
-│   │   ├── routes/          # API routes
-│   │   ├── views/           # View templates
-│   │   ├── .eslintrc.js     # ESLint configuration
-│   │   ├── package.json     # Backend dependencies
-│   │   └── index.js         # Server entry point
+│   │   ├── config/            # Backend configuration
+│   │   ├── methods/           # Business logic and helpers
+│   │   ├── middleware/        # Express middleware
+│   │   ├── routes/           # API routes
+│   │   ├── .eslintrc.js      # ESLint configuration
+│   │   ├── .gitignore        # Git ignore rules
+│   │   ├── firebase-debug.log # Firebase debug logs
+│   │   ├── firestore-debug.log # Firestore debug logs
+│   │   ├── index.js          # Server entry point
+│   │   ├── package.json      # Backend dependencies
+│   │   └── ui-debug.log      # UI debug logs
 ```
 
 ## 4. Development Environment Setup
@@ -88,7 +98,7 @@ agrilens/
 
 ## 5. Development Workflow
 
-### 5.1 Running the Application
+### 5.1 Running the Application Locally
 1. Start the backend functions emulator:
    ```bash
    cd agrilens-backend/functions
@@ -139,5 +149,5 @@ npm test
 - Submit pull requests against the `develop` branch
 
 ---
-Contributor: Blair (Claude conversation & artifact links: https://claude.site/artifacts/4267a548-894d-4e9d-ac7b-802f2a6d5523, https://claude.site/artifacts/a0f74017-791c-4903-92dc-e2e467bd7f24) 
-Last updated: 2024-11-09
+Contributor: Blair (Claude conversation & artifact links: https://claude.site/artifacts/4267a548-894d-4e9d-ac7b-802f2a6d5523, https://claude.site/artifacts/a0f74017-791c-4903-92dc-e2e467bd7f24, https://claude.site/artifacts/e60c4340-c6e1-4ed2-b95d-b386af2c5cfc) 
+Last updated: 2024-11-29
