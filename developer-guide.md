@@ -6,7 +6,7 @@ This guide provides instructions for setting up your development environment and
 ## 2. Setup Requirements
 
 ### 2.1 Prerequisites
-- Node.js (version 14.x or higher)
+- Node.js (version 18.x)
 - npm (usually comes with Node.js)
 - Git
 - Firebase CLI
